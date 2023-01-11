@@ -41,7 +41,7 @@ class LinkItemWidget extends StatelessWidget {
               child: const Icon(Icons.edit_outlined),
               onTap: () {
                 Navigator.of(context).pushNamed(
-                  'edit-link',
+                  '/edit-link',
                   arguments: {'model': model},
                 );
               },

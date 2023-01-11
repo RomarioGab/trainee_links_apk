@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
       LinkModel(
           linkId: "1",
           linkTitle: "Titlo1",
-          linkUrl: "kajflasjfçasldhgçashgçash"),
+          linkUrl: "https://www.youtube.com/watch?v=Euq_-_Xmi9U&t=1699s"),
     );
     links.add(
       LinkModel(
