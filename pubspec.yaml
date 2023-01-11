@@ -39,10 +39,21 @@ dependencies:
   outline_search_bar: ^2.3.0
   circle_nav_bar: ^2.0.1+1
   snippet_coder_utils: ^1.0.12
+  flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.16
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "lib/assets/logo.png"
+
+flutter_native_splash:
+  color: "#ffffff" #white color
+  image: lib/assets/splash.jpg
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

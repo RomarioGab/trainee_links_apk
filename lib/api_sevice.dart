@@ -23,7 +23,7 @@ class APIService {
     }
   }
 
-  static Future<List<LinkModel>?> saveBilhete(
+  static Future<bool> saveLink(
     LinkModel model,
     bool isEditMode,
   ) async {
@@ -40,17 +40,29 @@ class APIService {
     var requestMethod = isEditMode ? "PUT" : "POST";
 
     var request = http.MultipartRequest(requestMethod, url);
-    request.fields["bilheteOdds"] = model.linkTitle!;
-    request.fields["bilheteEntrada"] = model.linkTitle!;
+    request.fields["link_title"] = model.linkTitle!;
+    request.fields["link_url"] = model.linkUrl!;
 
-    var response = await client.get(url, headers: requestHeaders);
+    var response = await request.send();
 
     if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
-
-      return linksFromJson(data["data"]);
+      return true;
     } else {
-      return null;
+      return false;
+    }
+  }
+
+  static Future<bool> deleteLinks(linkId) async {
+    Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
+
+    var url = Uri.http(Config.apiURL, Config.linkURL + "/" + linkId);
+
+    var response = await client.delete(url, headers: requestHeaders);
+
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
