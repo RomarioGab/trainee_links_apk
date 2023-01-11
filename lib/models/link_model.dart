@@ -1,4 +1,4 @@
-List<LinkModel> linkFromJson(dynamic str) =>
+List<LinkModel> linksFromJson(dynamic str) =>
     List<LinkModel>.from((str).map((x) => LinkModel.fromJson(x)));
 
 class LinkModel {

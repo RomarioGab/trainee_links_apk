@@ -40,7 +40,10 @@ class LinkItemWidget extends StatelessWidget {
             GestureDetector(
               child: const Icon(Icons.edit_outlined),
               onTap: () {
-                
+                Navigator.of(context).pushNamed(
+                  'edit-link',
+                  arguments: {'model': model},
+                );
               },
             ),
             GestureDetector(

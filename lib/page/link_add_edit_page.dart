@@ -64,7 +64,7 @@ class _LinkAddEditPageState extends State<LinkAddEditPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              "link_title",
+              "linkTitle",
               "Link title",
               (onValidateVal) {
                 if (onValidateVal.isEmpty) {
@@ -91,7 +91,7 @@ class _LinkAddEditPageState extends State<LinkAddEditPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              "link_url",
+              "linkUrl",
               "Link URL",
               (onValidateVal) {
                 if (onValidateVal.isEmpty) {
