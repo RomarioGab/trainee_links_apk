@@ -27,7 +27,7 @@ class APIService {
     var linkURL = Config.linkURL;
 
     if (isEditMode) {
-      linkURL = linkURL + "/" + model.linkId.toString();
+      linkURL = "$linkURL/${model.linkId}";
     }
 
     var url = Uri.http(Config.apiURL, linkURL);
@@ -50,7 +50,7 @@ class APIService {
   static Future<bool> deleteLinks(linkId) async {
     Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
 
-    var url = Uri.http(Config.apiURL, Config.linkURL + "/" + linkId);
+    var url = Uri.http(Config.apiURL, "${Config.linkURL}/$linkId");
 
     var response = await client.delete(url, headers: requestHeaders);
 
