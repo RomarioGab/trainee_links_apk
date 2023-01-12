@@ -1,5 +1,6 @@
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:trainee_links_apk/models/link_model.dart';
 import 'package:trainee_links_apk/widgets/link_item.dart';
 import 'package:trainee_links_apk/api_sevice.dart';
@@ -17,7 +18,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<LinkModel> links = List<LinkModel>.empty(growable: true);
-
+  bool isAPICallProcess = false;
   @override
   void initState() {
     super.initState();
@@ -90,7 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: ((context, index) {
                 return LinkItemWidget(
                   model: links[index],
-                  onDelete: (F) {},
+                  onDelete: (LinkModel model) {
+                    setState(() {
+                      isAPICallProcess = true;
+                    });
+                    APIService.deleteLinks(model.linkId).then((response) {
+                      setState(() {
+                        isAPICallProcess = false;
+                      });
+                    });
+                  },
                 );
               }),
             )
@@ -126,7 +136,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: loadLinks(),
+                child: ProgressHUD(
+                  inAsyncCall: isAPICallProcess,
+                  opacity: .3,
+                  key: UniqueKey(),
+                  child: loadLinks(),
+                ),
               ),
             ),
           ],
