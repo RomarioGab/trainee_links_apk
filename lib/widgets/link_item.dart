@@ -49,7 +49,9 @@ class LinkItemWidget extends StatelessWidget {
             GestureDetector(
               child:
                   const Icon(Icons.delete_outline_outlined, color: Colors.red),
-              onTap: () {},
+              onTap: () {
+                onDelete!(model);
+              },
             )
           ]),
     );
