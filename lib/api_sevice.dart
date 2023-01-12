@@ -23,17 +23,12 @@ class APIService {
     }
   }
 
-  static Future<bool> saveLink(
-    LinkModel model,
-    bool isEditMode,
-  ) async {
+  static Future<bool> saveLink(LinkModel model, bool isEditMode) async {
     var linkURL = Config.linkURL;
 
     if (isEditMode) {
-      linkURL = "$linkURL/${model.linkId}";
+      linkURL = linkURL + "/" + model.linkId.toString();
     }
-
-    Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
 
     var url = Uri.http(Config.apiURL, linkURL);
 

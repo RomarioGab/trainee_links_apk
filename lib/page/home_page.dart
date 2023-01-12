@@ -2,6 +2,7 @@ import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:trainee_links_apk/models/link_model.dart';
 import 'package:trainee_links_apk/widgets/link_item.dart';
+import 'package:trainee_links_apk/api_sevice.dart';
 
 import '../widgets/search_bar.dart';
 
@@ -21,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    links.add(
+    /*links.add(
       LinkModel(
           linkId: "1",
           linkTitle: "Titlo1",
@@ -69,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           linkId: "2",
           linkTitle: "Titlo2",
           linkUrl: "kajflasjfçasldfjadlsçfçashfçaskhgçashgçash"),
-    );
+    );*/
   }
 
   Widget linksList(links) {
@@ -125,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: linksList(links),
+                child: loadLinks(),
               ),
             ),
           ],
@@ -143,8 +144,23 @@ class _MyHomePageState extends State<MyHomePage> {
           circleWidth: 60,
           activeIndex: 0,
           onTap: (index) {
-            Navigator.pushNamed(context,"/add-link" );
+            Navigator.pushNamed(context, "/add-link");
           },
         ));
+  }
+
+  Widget loadLinks() {
+    return FutureBuilder(
+      future: APIService.getLinks(),
+      builder: (
+        BuildContext context,
+        AsyncSnapshot<List<LinkModel>?> model,
+      ) {
+        if (model.hasData) {
+          return linksList(model.data);
+        }
+        return const Center(child: CircularProgressIndicator());
+      },
+    );
   }
 }

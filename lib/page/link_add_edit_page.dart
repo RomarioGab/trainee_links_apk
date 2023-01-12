@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
+import 'package:trainee_links_apk/api_sevice.dart';
 import 'package:trainee_links_apk/models/link_model.dart';
+import 'package:trainee_links_apk/config.dart';
 
 class LinkAddEditPage extends StatefulWidget {
   const LinkAddEditPage({super.key});
@@ -122,6 +124,28 @@ class _LinkAddEditPageState extends State<LinkAddEditPage> {
               () {
                 if (validateAndSave()) {
                   //API Service
+                  setState(() {
+                    isAPICallProcess = true;
+                  });
+                  APIService.saveLink(linkModel!, isEditMode).then((response) {
+                    setState(() {
+                      isAPICallProcess = false;
+                    });
+                    if (response) {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/', (route) => false);
+                    } else {
+                      FormHelper.showSimpleAlertDialog(
+                        context,
+                        Config.appName,
+                        "Error Occure",
+                        "Ok",
+                        () {
+                          Navigator.of(context).pop();
+                        },
+                      );
+                    }
+                  });
                 }
               },
               btnColor: const Color.fromARGB(255, 59, 155, 234),
