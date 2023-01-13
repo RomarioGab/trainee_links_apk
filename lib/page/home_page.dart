@@ -22,56 +22,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-
-    /*links.add(
-      LinkModel(
-          linkId: "1",
-          linkTitle: "Titlo1",
-          linkUrl: "https://www.youtube.com/watch?v=Euq_-_Xmi9U&t=1699s"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl:
-              "https://stackoverflow.com/questions/54548853/placing-two-trailing-icons-in-listtile"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl: "kajflasjfçasldfjadlsçfçashfçaskhgçashgçash"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl: "kajflasjfçasldfjadlsçfçashfçaskhgçashgçash"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl: "kajflasjfçasldfjadlsgçash"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl: "kajflasjfçasldfjadkhgçashgçash"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl: "kajflasjfçasldfjadlsçfçashfçaskhgçashgçash"),
-    );
-    links.add(
-      LinkModel(
-          linkId: "2",
-          linkTitle: "Titlo2",
-          linkUrl: "kajflasjfçasldfjadlsçfçashfçaskhgçashgçash"),
-    );*/
   }
 
   Widget linksList(links) {
@@ -114,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Trainee Links '),
+          title: Text(widget.title),
           elevation: 0,
         ),
         backgroundColor: Colors.grey[200],

@@ -30,9 +30,9 @@ class APIService {
       linkURL = "$linkURL/${model.linkId}";
     }
 
-    var url = Uri.http(Config.apiURL, linkURL);
+    var url = Uri.https(Config.apiURL, linkURL);
 
-    var requestMethod = isEditMode ? "PUT" : "POST";
+    var requestMethod = isEditMode ? 'PUT' : 'POST';
 
     var request = http.MultipartRequest(requestMethod, url);
     request.fields["link_title"] = model.linkTitle!;

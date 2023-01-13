@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trainee_links_apk/page/home_page.dart';
 import 'package:trainee_links_apk/page/link_add_edit_page.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const MyHomePage(title: 'Trainee Links'),
-        '/add-link': (context) => const LinkAddEditPage(),
-        '/edit-link': (context) => const LinkAddEditPage(),
+        '/add-link': (context) => const LinkAddEditPage(title: 'Add Links'),
+        '/edit-link': (context) => const LinkAddEditPage(title: 'Update Links'),
       },
     );
   }

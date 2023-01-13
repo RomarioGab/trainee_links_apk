@@ -6,7 +6,9 @@ import 'package:trainee_links_apk/models/link_model.dart';
 import 'package:trainee_links_apk/config.dart';
 
 class LinkAddEditPage extends StatefulWidget {
-  const LinkAddEditPage({super.key});
+  const LinkAddEditPage({super.key,  required this.title});
+
+  final String title;
 
   @override
   State<LinkAddEditPage> createState() => _LinkAddEditPageState();
@@ -23,7 +25,7 @@ class _LinkAddEditPageState extends State<LinkAddEditPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Trainee Link"),
+          title: Text(widget.title),
           elevation: 0,
         ),
         backgroundColor: Colors.grey[200],
