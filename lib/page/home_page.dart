@@ -64,7 +64,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Row(
+            children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(300.0),
+                  child: Image.asset(
+                    'assets/logo.png',
+                    fit: BoxFit.contain,
+                    height: 100,
+                  )),
+              Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    widget.title,
+                    style: const TextStyle(fontSize: 26),
+                  ))
+            ],
+          ),
           elevation: 0,
         ),
         backgroundColor: Colors.grey[200],
