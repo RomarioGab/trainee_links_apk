@@ -1,16 +1,8 @@
 # trainee_links_apk
 
-A new Flutter project.
+Projecto desenvolvido usando flutter, com api desenvolvido em nodejs e poblicado em um servidor remodo.
 
-## Getting Started
+## Getting Started:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Baixe Apk da aqui: Para Android.](https://docs.flutter.dev/get-started/codelab)
+- [Backend repositorio API : Nodejs.](https://github.com/RomarioGab/trainee_links_api)
