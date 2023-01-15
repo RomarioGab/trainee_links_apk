@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainee_links_apk/models/link_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LinkItemWidget extends StatelessWidget {
   const LinkItemWidget({Key? key, this.model, this.onDelete}) : super(key: key);
@@ -27,10 +28,13 @@ class LinkItemWidget extends StatelessWidget {
         "Title: ${model!.linkTitle}",
         style: const TextStyle(color: Colors.black),
       ),
-      subtitle: Text(
-        "${model!.linkUrl}",
-        style: const TextStyle(
-            color: Colors.blue, decoration: TextDecoration.underline),
+      subtitle: InkWell(
+        child: Text(
+          "${model!.linkUrl}",
+          style: const TextStyle(
+              color: Colors.blue, decoration: TextDecoration.underline),
+        ),
+        onTap: () => launchUrl(Uri.parse(model!.linkUrl.toString())),
       ),
       trailing: Row(
           mainAxisAlignment: MainAxisAlignment.start,
